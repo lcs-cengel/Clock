@@ -11,21 +11,44 @@ struct AlarmsView: View {
     var body: some View {
         NavigationStack{
             VStack(spacing: 28){
-Text("\(Image(systemName: "bed.double.fill"))Sleep | Wake up")
+                Text("\(Image(systemName: "bed.double.fill"))Sleep | Wake up")
                     .font(.system(size: 25.0))
-                   
-
+                
+                ExtractedView(Alarmtime: "7:30", AlarmamOrPm: "AM")
+                ExtractedView(Alarmtime: "8:15", AlarmamOrPm: "AM")
+                
+            }
+            .navigationTitle("Alarms")
+            .toolbar {
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    
+                    Button("Edit") {
+                        //Does nothing right now
+                    }
+                    
+                }
+                
+                ToolbarItem(placement: .primaryAction) {
+                    
+                    Button {
+                        //Does nothing right now
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    
+                }
             }
             
-            
-            ExtractedView()
+          
         }
+        
     }
-}
     
-    #Preview {
-        LandingView()
-    }
+    
+    
+
+}
 
 struct ExtractedView: View {
     let Alarmtime: String
@@ -34,72 +57,58 @@ struct ExtractedView: View {
     var body: some View {
         
         
-        
-        VStack{
-            HStack{
-                //Left Side
-                Text(
-                    Alarmtime
-                )
-                .font(
-                    .system(
-                        size: 64.0,
-                        weight: .thin,
-                        design: .default
-                    )
-                )
-                Text(
-                    AlarmamOrPm
-                )
-                .font(
-                    .system(
-                        .largeTitle,
-                        design: .default,
-                        weight: .thin
-                    )
-                )
+        HStack{
+            VStack(alignment: .leading){
                 
-                Spacer()
-                //Right side
-                Toggle(
-                    "",
-                    isOn: Binding.constant(
-                        true
+                HStack{
+                    
+                    //Left Side
+                    Text(
+                        Alarmtime
                     )
-                )
-                .tint(
-                    .green
-                )
-            }
-            .padding()
-        }
-        .navigationTitle(
-            "Alarms"
-        )
-        
-        
-        
-        
-        .toolbar {
-            
-            ToolbarItem(placement: .topBarLeading) {
-                
-                Button("Edit") {
-                    //Does nothing right now
+                    .font(
+                        .system(
+                            size: 64.0,
+                            weight: .thin,
+                            design: .default
+                        )
+                    )
+                    Text(
+                        AlarmamOrPm
+                    )
+                    .font(
+                        .system(
+                            .largeTitle,
+                            design: .default,
+                            weight: .thin
+                        )
+                    )
                 }
-                
+                Text("Alarm")
             }
-            
-            ToolbarItem(placement: .primaryAction) {
-                
-                Button {
-                    //Does nothing right now
-                } label: {
-                    Image(systemName: "plus")
-                }
-                
-            }
-            
+            Spacer()
+            //Right side
+            Toggle(
+                "",
+                isOn: Binding.constant(
+                    true
+                )
+            )
+            .tint(
+                .green
+            )
         }
+        .padding()
     }
+    
+    
+    
 }
+
+
+#Preview {
+    LandingView()
+}
+
+
+
