@@ -80,8 +80,8 @@
 			children = (
 				231516E52D0386CD00FFDC27 /* LandingView.swift */,
 				231516EC2D0387B600FFDC27 /* WorldClockView.swift */,
-				231516F22D038FE400FFDC27 /* CityView.swift */,
 				231516EE2D0387C800FFDC27 /* AlarmsView.swift */,
+				231516F22D038FE400FFDC27 /* CityView.swift */,
 				231516F02D0387D600FFDC27 /* StopwatchView.swift */,
 			);
 			path = Views;

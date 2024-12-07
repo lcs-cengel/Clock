@@ -21,7 +21,8 @@ struct CityView: View {
     var body: some View {
         HStack {
             //Left side
-            VStack {
+            VStack (alignment: .leading)
+            {
                 Text("Today, \(timeZoneOffset)HRS")
                 Text(city)
                     .font(.system(.largeTitle, design: .default, weight: .thin))
@@ -37,4 +38,7 @@ struct CityView: View {
             
         }
     }
+}
+#Preview {
+    CityView(timeZoneOffset: "+6", city: "Pretoria", time: "3:35", amOrPm: "PM")
 }
